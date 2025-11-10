@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ParkingAp" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="colorPrimary">@color/parkfinder_primary</item>
+        <item name="colorPrimaryDark">@color/parkfinder_primary</item>
+        <item name="colorAccent">@color/teal_200</item>
+    </style>
+
+</resources>

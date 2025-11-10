@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <!-- 🔷 Light Blue Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#BBDEFB"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!-- 🔘 Filter Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btn_all"
+            style="@style/StyledButton"
+            android:text="ALL" />
+
+        <Button
+            android:id="@+id/btn_available"
+            style="@style/StyledButton"
+            android:text="AVAILABLE"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/btn_full"
+            style="@style/StyledButton"
+            android:text="FULL"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!--  Map Fragment -->
+    <fragment
+        android:id="@+id/map_fragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Zoom Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btn_zoom_in"
+            style="@style/StyledButton"
+            android:text="＋" />
+
+        <Button
+            android:id="@+id/btn_zoom_out"
+            style="@style/StyledButton"
+            android:text="－"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Spot Info -->
+    <TextView
+        android:id="@+id/spot_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select a spot"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingTop="12dp" />
+
+    <TextView
+        android:id="@+id/spot_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status: -"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/spot_distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Distance: -"
+        android:paddingTop="4dp"
+        android:paddingBottom="8dp" />
+
+    <!-- Navigation Button -->
+    <Button
+        android:id="@+id/btn_navigate"
+        style="@style/StyledButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🧭 NAVIGATE TO SPOT"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp" />
+
+</LinearLayout>
