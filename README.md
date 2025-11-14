@@ -1,53 +1,101 @@
-🚗 ParkFinder – Android App
-ParkFinder is an Android application that helps users find available parking spots around Thessaloniki, book and pay for the spot, and navigate to it, simulating a real-world parking experience.
+# 🚗 ParkFinder – Android Parking Application for Thessaloniki
 
-📱 Features
-🗺️ Google Maps Integration: View all nearby parking spots with color-coded markers (🟢 Available / 🔴 Full).
-✅ Booking System: Tap an available spot, choose the duration, and mark it as reserved.
-🔁 Real-Time Updates: Booked spots become unavailable and are updated live.
-⏳ Automatic Reset: Spots become available again after the booking time passes.
-📍 Navigation Support: Opens Google Maps with driving directions from user location to the selected parking spot.
-📦 Local Database: Uses Room to store parking data persistently on the device.
-🔔 Notifications: Reminder sent when navigating with Google Maps, allowing quick return to the app.
-🧠 Architecture Overview
-Project Structure
-com.example.parkfinder ├── MainActivity.kt # Main logic, maps UI, booking, navigation ├── AppDatabase.kt # Room database setup ├── ParkingSpot.kt # Data class for parking spot entity ├── ParkingSpotDao.kt # DAO for database queries └── res/layout/activity_main.xml # Main app layout with buttons, map, info panel
+ParkFinder is an Android application that helps users find available parking spots around Thessaloniki, view them on a map, book a spot for a selected time, and navigate to it using Google Maps.
 
-🏗️ Tech Stack
-Language: Kotlin
-UI: Google Maps API, XML Layout
-Database: Room Persistence Library
-Navigation: Google Maps Intent API
-Architecture: MVVM-lite with DAO, Database, and UI separation
-🛠️ How It Works
-Parking Spots
-100 dummy parking spots are generated randomly around Thessaloniki.
-Each has a title, availability (✅ Available or ❌ Full), distance, and coordinates.
-Stored in Room DB.
-Booking Flow
-User taps an available marker and a booking dialog appears.
-User chooses a duration (1h, 2h, ...).
-Status becomes ❌ Full and parking spot changes to Booked for X hours.
-A handler reverts the spot to ✅ Available after the selected time.
-Navigation
-Pressing "Navigate" opens Google Maps and starts turn-by-turn navigation.
-The route is from user location to the spot.
+---
 
-📦 Setup Instructions
-Clone the repository: bash git clone https://github.com/yourusername/parkfinder.git
+## ✨ Features
 
-Open with Android Studio.
+### 🗺️ Google Maps Integration
+- View all nearby parking spots with color-coded markers  
+  - 🟢 **Available**  
+  - 🔴 **Full**
 
-Enable Google Maps API in your Google Cloud Console.
+### 🕒 Booking System
+- Tap an available spot
+- Choose booking duration (1h, 2h, 3h, etc.)
+- Spot becomes **Full** during the booking time
+- Automatic reset: spots return to **Available** after time passes
 
-Add your API key to AndroidManifest.xml:
+### 🧭 Navigation Support
+- Opens **Google Maps** with turn-by-turn driving directions
 
-Run on a physical device or an emulator.
+### 🗄️ Local Database (Room)
+- Stores spot availability and booking states persistently on the device
+- DAO, Entities, and Database setup included
 
-📋 Requirements:
+### 🔔 Notifications
+- Reminder sent when navigating
+- Useful alerts during map navigation
 
-Android Studio Bumblebee or later Android API Level 29+ Google Play Services Internet access for map/navigation
+---
 
-💡 Future Improvements: Firebase for cloud syncing User login & history Payment integration (Stripe, Google Pay) Real-time availability using sensors
+## 🏗️ Architecture Overview
 
-👤 Authors: Xenos Nikolaos Sarantis – Developer
+com.example.parkfinder
+├── MainActivity.kt # Main logic: map, UI, booking, navigation
+├── data/
+│ ├── AppDatabase.kt # Room database setup
+│ ├── ParkingSpot.kt # Entity class
+│ └── ParkingSpotDao.kt# DAO for database queries
+├── ui/
+│ └── activity_main.xml # Layout with buttons, map, status panel
+
+
+- MVVM-lite structure
+- Google Maps API + Room DB
+- Clean separation of UI, Data, and Logic
+
+---
+
+## 🧪 How It Works
+
+- The app generates **100 dummy parking spots** around Thessaloniki.
+- Each spot has:
+  - Title  
+  - Availability (🟢 / 🔴)  
+  - Coordinates  
+  - Distance from user  
+- Booking updates the DB and UI instantly.
+- Pressing **Navigate** opens Google Maps with navigation from the user’s location to the selected spot.
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone the repository
+bash
+git clone https://github.com/CSD-CPM/dissertation-code-submission-nickXenos.git
+
+### 2. Open with Android Studio
+
+### 3. Enable Google Maps API
+Go to Google Cloud Console
+Enable Maps SDK for Android
+Generate an API key
+
+### 4. Add your API key
+Insert inside AndroidManifest.xml:
+<meta-data
+    android:name="com.google.android.geo.API_KEY"
+    android:value="YOUR_API_KEY_HERE"/>
+
+### 5. Run the app
+On a physical Android device
+Or an emulator with Google Play Services
+
+📦 Requirements
+Android Studio Bumblebee or newer
+Android API Level 29+
+Google Play Services
+Internet access for map & navigation
+
+### 🔮 Future Improvements
+
+Firebase for cloud syncing
+User login & account history
+Payment integration (Stripe, Google Pay)
+Real-time availability using sensors or live data
+
+### 👨‍💻 Author
+Xenos Nikolaos Sarantis — Developer
